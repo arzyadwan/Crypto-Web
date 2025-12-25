@@ -11,9 +11,9 @@ interface HeroSectionProps {
 
 export function HeroSection({ mainArticle, trendingArticles }: HeroSectionProps) {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-[600px]">
+    <section className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-4 gap-6 h-[600px]">
       {/* Main Article */}
-      <Link href={`/news/${mainArticle.slug}`} className="block md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-lg">
+      <Link href={`/news/${mainArticle.slug}`} className="block md:col-span-2 md:row-span-4 group relative overflow-hidden rounded-lg">
         <Card className="h-full w-full bg-card border-0 transition-all duration-300 group-hover:border-accent border-2">
             <Image
               src={mainArticle.imageUrl}
@@ -40,12 +40,12 @@ export function HeroSection({ mainArticle, trendingArticles }: HeroSectionProps)
       </Link>
 
       {/* Trending Articles */}
-      <div className="md:col-span-1 md:row-span-2 grid grid-cols-1 gap-6">
-        {trendingArticles.slice(0, 2).map((article) => (
-          <Link key={article.id} href={`/news/${article.slug}`} className="block group">
+      <div className="md:col-span-1 md:row-span-4 grid grid-cols-1 md:grid-rows-4 gap-6">
+        {trendingArticles.map((article) => (
+          <Link key={article.id} href={`/news/${article.slug}`} className="block group md:row-span-1">
             <Card className="h-full bg-card border-2 border-transparent transition-all duration-300 group-hover:border-accent">
-                <CardContent className="p-4 flex gap-4">
-                    <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-md">
+                <CardContent className="p-4 flex gap-4 h-full">
+                    <div className="relative w-24 h-full flex-shrink-0 overflow-hidden rounded-md">
                         <Image
                             src={article.imageUrl}
                             alt={article.title}
@@ -55,11 +55,11 @@ export function HeroSection({ mainArticle, trendingArticles }: HeroSectionProps)
                              sizes="96px"
                         />
                     </div>
-                    <div>
+                    <div className="flex flex-col justify-center">
                         {article.category && (
-                            <Badge variant="secondary" className="mb-1 text-xs">{article.category.name}</Badge>
+                            <Badge variant="secondary" className="mb-1 text-xs self-start">{article.category.name}</Badge>
                         )}
-                        <h3 className="text-sm font-semibold leading-tight text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="text-sm font-semibold leading-tight text-foreground group-hover:text-primary transition-colors line-clamp-3">
                             {article.title}
                         </h3>
                     </div>

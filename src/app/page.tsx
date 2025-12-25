@@ -12,8 +12,8 @@ export default async function Home() {
   const { posts } = await getNews(1, 11);
 
   const heroPost = posts[0] as FullPost | undefined;
-  const trendingPosts = posts.slice(1, 4) as FullPost[];
-  const otherPosts = posts.slice(4) as FullPost[];
+  const trendingPosts = posts.slice(1, 5) as FullPost[];
+  const otherPosts = posts.slice(5) as FullPost[];
 
   return (
     <>
@@ -38,7 +38,7 @@ export default async function Home() {
             {posts.length > 10 && (
               <div className="text-center mt-12">
                 <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  <Link href="#">View More Articles</Link>
+                  <Link href="/news">View More Articles</Link>
                 </Button>
               </div>
             )}
