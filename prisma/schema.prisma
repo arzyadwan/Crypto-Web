@@ -1,12 +1,13 @@
-
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider        = "prisma-client-js"
-  binaryTargets   = ["native", "debian-openssl-1.1.x", "debian-openssl-3.0.x"]
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Post {
@@ -17,11 +18,10 @@ model Post {
   content     String
   imageUrl    String
   publishedAt DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  authorId    String?
-  author      User?     @relation(fields: [authorId], references: [id])
   categoryId  String?
   category    Category? @relation(fields: [categoryId], references: [id])
+  authorId    String?
+  author      User?     @relation(fields: [authorId], references: [id])
 }
 
 model Category {
@@ -44,6 +44,5 @@ model MarketTicker {
   symbol     String   @unique
   price_usd  Float
   change_24h Float
-  createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
