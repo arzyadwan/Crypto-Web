@@ -1,8 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -18,10 +16,11 @@ model Post {
   content     String
   imageUrl    String
   publishedAt DateTime  @default(now())
-  categoryId  String?
+  updatedAt   DateTime  @updatedAt
   category    Category? @relation(fields: [categoryId], references: [id])
-  authorId    String?
+  categoryId  String?
   author      User?     @relation(fields: [authorId], references: [id])
+  authorId    String?
 }
 
 model Category {
@@ -32,11 +31,13 @@ model Category {
 }
 
 model User {
-  id    String  @id @default(cuid())
-  name  String?
-  email String? @unique
-  image String?
-  posts Post[]
+  id      String   @id @default(cuid())
+  name    String?
+  email   String?  @unique
+  image   String?
+  posts   Post[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model MarketTicker {
