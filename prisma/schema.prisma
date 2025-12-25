@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// To use this schema, you need to create a .env file in the root of your project
+// and add the DATABASE_URL from your Supabase project settings.
+// e.g., DATABASE_URL="postgresql://user:password@host:port/database"
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String   @db.Text
+  imageUrl    String
+  publishedAt DateTime @default(now())
+
+  category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId String?
+
+  author   User?   @relation(fields: [authorId], references: [id])
+  authorId String?
+
+  @@index([categoryId])
+  @@index([authorId])
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String @unique
+  color String // e.g., hex code for UI badges
+  posts Post[]
+}
+
+model User {
+  id    String  @id @default(cuid())
+  name  String?
+  email String? @unique
+  image String? // URL to profile picture
+  posts Post[]
+}
+
+model MarketTicker {
+  id         String @id @default(cuid())
+  symbol     String @unique
+  price_usd  Float
+  change_24h Float
+}

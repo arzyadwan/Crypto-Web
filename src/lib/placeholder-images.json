@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "1",
+      "description": "Bitcoin hitting a new all-time high.",
+      "imageUrl": "https://images.unsplash.com/photo-1737703638422-2cfa152cdcb7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiaXRjb2luJTIwZ3JhcGh8ZW58MHx8fHwxNzY2NjY0NzM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bitcoin graph"
+    },
+    {
+      "id": "2",
+      "description": "Abstract representation of DeFi.",
+      "imageUrl": "https://images.unsplash.com/photo-1644925024902-8f5829da8204?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkZWNlbnRyYWxpemVkJTIwZmluYW5jZXxlbnwwfHx8fDE3NjY2NjQ3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "decentralized finance"
+    },
+    {
+      "id": "3",
+      "description": "A collection of altcoin logos.",
+      "imageUrl": "https://images.unsplash.com/photo-1659478039681-0ebbf73c7fb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhbHRjb2lucyUyMGxvZ29zfGVufDB8fHx8MTc2NjY2NDczNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "altcoins logos"
+    },
+    {
+      "id": "4",
+      "description": "Government building with a crypto symbol.",
+      "imageUrl": "https://images.unsplash.com/photo-1627397159237-d2acb7f500af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxnb3Zlcm5tZW50JTIwcmVndWxhdGlvbnxlbnwwfHx8fDE3NjY2NjQ3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "government regulation"
+    },
+    {
+      "id": "5",
+      "description": "Abstract digital art for NFTs.",
+      "imageUrl": "https://images.unsplash.com/photo-1663603846231-16fb004c2fae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxuZnQlMjBhcnR8ZW58MHx8fHwxNzY2NjY0NzM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nft art"
+    }
+  ]
 }
