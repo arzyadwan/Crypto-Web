@@ -1,0 +1,55 @@
+diff --git a/node_modules/@prisma/client/package.json b/node_modules/@prisma/client/package.json
+index 13a6a68..d11d94b 100644
+--- a/node_modules/@prisma/client/package.json
++++ b/node_modules/@prisma/client/package.json
+@@ -10,7 +10,7 @@
+   "sideEffects": false,
+   "main": "index.js",
+   "types": "index.d.ts",
+-  "browser": "index-browser.js",
++  "browser": "index.js",
+   "scripts": {
+     "test": "node scripts/test-jest.js",
+     "generate": "node scripts/generate-index.js",
+diff --git a/node_modules/@prisma/client/scripts/default-index.js b/node_modules/@prisma/client/scripts/default-index.js
+index 99d044f..6d23456 100644
+--- a/node_modules/@prisma/client/scripts/default-index.js
++++ b/node_modules/@prisma/client/scripts/default-index.js
+@@ -105,9 +105,7 @@
+ 'use strict'
+ 
+ if (process.env.NODE_ENV === 'production') {
+-  module.exports = require('./index.js')
++  module.exports = require('./default.js')
+ } else {
+-  module.exports = require('./index.js')
++  module.exports = require('./default.js')
+ }
+-
+-
+diff --git a/node_modules/@prisma/client/scripts/generate-index.js b/node_modules/@prisma/client/scripts/generate-index.js
+index 4758d34..d04259b 100644
+--- a/node_modules/@prisma/client/scripts/generate-index.js
++++ b/node_modules/@prisma/client/scripts/generate-index.js
+@@ -28,7 +28,7 @@
+ 
+ // We want to create a file like this:
+ //
+-// /.../node_modules/@prisma/client/index.js
++// /.../node_modules/@prisma/client/default.js
+ //
+ // ```
+ // 'use strict'
+@@ -36,10 +36,10 @@
+ // if (process.env.NODE_ENV === 'production') {
+ //   module.exports = require('./runtime/library')
+ // } else {
+-//   module.exports = require('./runtime/library')
++//   module.exports = require('./runtime/library.js')
+ // }
+ // ```
+ 
+-const indexPath = path.join(process.cwd(), 'index.js')
++const indexPath = path.join(process.cwd(), 'default.js')
+ 
+ fs.writeFileSync(indexPath, getIndexJsContent())
